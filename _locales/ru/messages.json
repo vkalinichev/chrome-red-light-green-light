@@ -1,12 +1,12 @@
 {
   "appname": {
-    "message": "Red Light Green Light"
+    "message": "RedLight GreenLight"
   },
   "appname_half_red": {
-    "message": "Red Light"
+    "message": "RedLight"
   },
   "appname_half_green": {
-    "message": "Green Light"
+    "message": "GreenLight"
   },
   "building_2": {
     "message": "2-й корпус"
