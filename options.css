@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     font-family: Segoe UI, Helvetica, sans-serif;
@@ -6,7 +5,13 @@ body {
     cursor: default;
     user-select: none;
     text-align: center;
+    background: linear-gradient( to bottom, #fff, #f5f5f5 150px, #fff );
 }
+
+button {
+    outline: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -16,7 +21,6 @@ body {
     font-size: 1.05rem;
     font-weight: normal;
     white-space: nowrap;
-    background: linear-gradient( to bottom, #fff, #f5f5f5 );
 }
 .header__text_red {
     color: #d00000;
@@ -42,7 +46,11 @@ body {
     margin: 0;
     padding: 8px 0;
 }
+.floors {
+    background: hsl(120, 67%, 95%);
+}
 .floor {
+    position: relative;
     width: 100%;
     margin: 0;
     padding: 4px;
@@ -50,15 +58,38 @@ body {
     background: none;
     color: #444;
     border: none;
+    border-radius: 4px;
     font: inherit;
     cursor: pointer;
 }
-
-.floor:hover {
-    background: #f5f5f5;
+.floor:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: hsla(0, 0%, 0%, 0 );
+    border-radius: inherit;
 }
-
+.floor:hover:after {
+    background: hsla(128, 100%, 31%, 0.05);
+}
 .floor_active {
     color: #000;
-    font-weight: 500;
+    background: hsla(128, 100%, 31%, 0.05);
+}
+.floor_active:after {
+    box-shadow: 0 0 0 2px hsla(128, 100%, 31%, 0.25) inset;
+    z-index: 11;
+}
+.floor_occupied {
+    background: hsl(350, 100%, 90%);
+    color: darkred;
+}
+.floor_occupied.floor_active {
+    color: #a50000;
+}
+.floor_occupied.floor_active:after {
+    box-shadow: 0 0 0 2px hsla(350, 100%, 31%, 0.25) inset;
 }
