@@ -1,0 +1,21 @@
+{
+  "name": "red-light-green-light",
+  "version": "1.0.0",
+  "description": "Simple misterious indicator",
+  "author": "Vladimir Kalinichev <wrumly@gmail.com>",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkalinichev/chrome-red-light-green-light.git"
+  },
+  "keywords": [ "chrome", "extension", "red", "green", "light", "indicator" ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vkalinichev/chrome-red-light-green-light.git/issues"
+  },
+  "homepage": "https://github.com/vkalinichev/chrome-red-light-green-light.git#readme"
+}
