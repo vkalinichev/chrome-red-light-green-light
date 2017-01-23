@@ -7,7 +7,8 @@
 
     localize()
     bindEvents()
-    getInitialStates()
+
+    setTimeout( getInitialStates, 0 ) // because of async nature of chrome message API
 
     function localize() {
         if ( !chrome.i18n ) return
