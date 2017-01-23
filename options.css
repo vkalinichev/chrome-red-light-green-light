@@ -5,7 +5,9 @@ body {
     cursor: default;
     user-select: none;
     text-align: center;
-    background: linear-gradient( to bottom, #fff, #f5f5f5 150px, #fff );
+    background: linear-gradient( to bottom, #fff, #fff );
+    min-width: 100px;
+    min-height: 100px;
 }
 
 button {
@@ -40,56 +42,35 @@ button {
 }
 .buildings {
     display: flex;
+    padding: 0 4px 4px;
 }
 .building {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     margin: 0;
-    padding: 8px 0;
-}
-.floors {
-    background: hsl(120, 67%, 95%);
 }
 .floor {
     position: relative;
-    width: 100%;
-    margin: 0;
+    margin: 4px;
     padding: 4px;
 
-    background: none;
+    background: hsl(120, 67%, 93%);
     color: #444;
     border: none;
     border-radius: 4px;
     font: inherit;
     cursor: pointer;
 }
-.floor:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: hsla(0, 0%, 0%, 0 );
-    border-radius: inherit;
-}
-.floor:hover:after {
-    background: hsla(128, 100%, 31%, 0.05);
-}
 .floor_active {
     color: #000;
-    background: hsla(128, 100%, 31%, 0.05);
-}
-.floor_active:after {
     box-shadow: 0 0 0 2px hsla(128, 100%, 31%, 0.25) inset;
-    z-index: 11;
 }
 .floor_occupied {
-    background: hsl(350, 100%, 90%);
+    background: hsl(350, 100%, 92%);
     color: darkred;
 }
 .floor_occupied.floor_active {
-    color: #a50000;
-}
-.floor_occupied.floor_active:after {
+    color: #b00000;
     box-shadow: 0 0 0 2px hsla(350, 100%, 31%, 0.25) inset;
 }
