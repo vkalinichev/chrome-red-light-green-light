@@ -7,26 +7,5 @@
   },
   "appname_half_green": {
     "message": "GreenLight"
-  },
-  "building_2": {
-    "message": "Building 2"
-  },
-  "building_3": {
-    "message": "Building 3"
-  },
-  "floor_5": {
-    "message": "Floor 5"
-  },
-  "floor_4": {
-    "message": "Floor 4"
-  },
-  "floor_3": {
-    "message": "Floor 3"
-  },
-  "floor_2": {
-    "message": "Floor 2"
-  },
-  "floor_1": {
-    "message": "Floor 1"
   }
 }

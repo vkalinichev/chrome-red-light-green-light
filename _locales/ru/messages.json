@@ -7,26 +7,5 @@
   },
   "appname_half_green": {
     "message": "GreenLight"
-  },
-  "building_2": {
-    "message": "2-й корпус"
-  },
-  "building_3": {
-    "message": "3-й корпус"
-  },
-  "floor_5": {
-    "message": "5-й этаж"
-  },
-  "floor_4": {
-    "message": "4-й этаж"
-  },
-  "floor_3": {
-    "message": "3-й этаж"
-  },
-  "floor_2": {
-    "message": "2-й этаж"
-  },
-  "floor_1": {
-    "message": "1-й этаж"
   }
 }
