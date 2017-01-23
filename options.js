@@ -24,13 +24,25 @@
     }
 
     function onFloorSelect( { target } ) {
-        if ( !target.dataset.id ) return
+        const id = target.dataset.id
 
-        saveActive( target.dataset.id, () => setActiveButton( target ) )
+        if ( !id ) return
+
+        saveActive( id, function () {
+            setActiveButton( target )
+            getState( id, updateIcon )
+            setTimeout( window.close, 150 )
+        } )
     }
 
     function getState( data, callback ) {
         chrome.runtime.sendMessage( { type: GET_STATE, data }, callback )
+    }
+
+    function updateIcon( occupied ) {
+        chrome.browserAction.setIcon({
+            path: `./images/icon_32${ occupied ? '_occupied' : ''}.png`
+        })
     }
 
     function getInitialStates() {
