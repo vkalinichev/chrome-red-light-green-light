@@ -24,10 +24,9 @@
     }
 
     function onFloorSelect( { target } ) {
-        if ( target.dataset.id ) {
-            setActiveButton( target )
-            saveActive( target.dataset.id )
-        }
+        if ( !target.dataset.id ) return
+
+        saveActive( target.dataset.id, () => setActiveButton( target ) )
     }
 
     function getState( data, callback ) {
@@ -35,19 +34,18 @@
     }
 
     function getInitialStates() {
-        document.body.querySelectorAll( '[data-id]' ).forEach( element =>
-            getState( element.dataset.id, function ( occupied ) {
-                if ( occupied ) {
-                    element.classList.add( 'floor_occupied' )
-                } else {
-                    element.classList.remove( 'floor_occupied' )
-                }
-            } )
-        )
+        chrome.storage.sync.get( ( { active } ) => {
+            document.body.querySelectorAll( '[data-id]' ).forEach( element =>
+                getState( element.dataset.id, function ( occupied ) {
+                    element.classList.toggle( 'floor_active', element.dataset.id === active )
+                    element.classList.toggle( 'floor_occupied', occupied )
+                } )
+            )
+        } )
     }
 
-    function saveActive ( data, callback ) {
-        chrome.runtime.sendMessage( { type: SET_ACTIVE, data }, callback )
+    function saveActive ( active, callback ) {
+        chrome.storage.sync.set( { active }, callback )
     }
 
     function setActiveButton( activeElement ) {
