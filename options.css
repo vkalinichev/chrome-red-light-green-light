@@ -1,7 +1,10 @@
+html {
+    font-size: 14px;
+}
 body {
     margin: 0;
     font-family: Segoe UI, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 1rem;
     cursor: default;
     user-select: none;
     text-align: center;
@@ -19,8 +22,8 @@ button {
     flex-direction: column;
 }
 .header {
-    padding: 8px 16px 8px;
-    font-size: 1.05rem;
+    padding: 8px 10px;
+    font-size: 1.0rem;
     font-weight: normal;
     white-space: nowrap;
 }
