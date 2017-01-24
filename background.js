@@ -73,11 +73,9 @@
     }
 
     function isTimeInRanges( time, ranges ) {
-        let isInRange = false
-
-        ranges.forEach( range => isInRange ? false : isInRange = isTimeInRange( time, range ) )
-
-        return isInRange
+        return ranges.reduce( ( prev, range ) => {
+            return prev || isTimeInRange( time, range )
+        }, false )
     }
 
 } )()
