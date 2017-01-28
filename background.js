@@ -23,7 +23,7 @@
                 case GET_STATE: {
                     const ranges = SCHEDULE[ request.data ]
 
-                    return sendResponse( isTimeInRanges( new Date, ranges ) )
+                    return sendResponse( getCurrentRange( new Date, ranges ) )
                 }
                 case SET_ACTIVE: {
                     break
@@ -45,24 +45,24 @@
         }
     }
 
-    function isTimeInRange( time, range ) {
-        const { startHours, startMinutes, endHours, endMinutes } = parseRange( range )
+    function isTimeInRange( time ) {
+        return function ( range ) {
+            const { startHours, startMinutes, endHours, endMinutes } = parseRange( range )
 
-        const now = new Date()
-        const year = now.getFullYear()
-        const month = now.getMonth()
-        const date = now.getDate()
+            const now = new Date()
+            const year = now.getFullYear()
+            const month = now.getMonth()
+            const date = now.getDate()
 
-        const startTime = new Date( year, month, date, startHours, startMinutes, 0 )
-        const endTime = new Date( year, month, date, endHours, endMinutes, 0 )
+            const startTime = new Date( year, month, date, startHours, startMinutes, 0 )
+            const endTime = new Date( year, month, date, endHours, endMinutes, 0 )
 
-        return time > startTime && time < endTime
+            return time > startTime && time < endTime
+        }
     }
 
-    function isTimeInRanges( time, ranges ) {
-        return ranges.reduce( ( prev, range ) => {
-            return prev || isTimeInRange( time, range )
-        }, false )
+    function getCurrentRange( time, ranges ) {
+        return ranges.find( isTimeInRange( time ) )
     }
 
 } )()
